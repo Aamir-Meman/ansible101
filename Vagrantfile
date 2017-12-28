@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
     s1.vm.provision "file", source: "./keys/id_rsa.pub", destination: "/home/vagrant/.ssh/id_rsa.pub"
     s1.vm.provision "shell", inline: <<-SHELL
       # Update your CentOS system
-      yum install epel-release
+      # yum install epel-release
       whoami
       # Get the public IP of your app Server
       echo -e "Please take a note of public IP mentioned below."
@@ -44,7 +44,7 @@ Vagrant.configure("2") do |config|
     s2.vm.network "private_network", type: "dhcp"
     s2.vm.provision "file", source: "./keys/id_rsa.pub", destination: "/home/vagrant/.ssh/id_rsa.pub"
     s2.vm.provision "shell", inline: <<-SHELL
-      yum install epel-release
+      # yum install epel-release
       # Get the public IP of your app Server
       echo -e "Please take a note of public IP mentioned below."
       hostname -I | awk -F' ' '{print $2}'
@@ -66,7 +66,7 @@ Vagrant.configure("2") do |config|
     end
     s3.vm.provision "file", source: "./keys/id_rsa.pub", destination: "/home/vagrant/.ssh/id_rsa.pub"
     s3.vm.provision "shell", inline: <<-SHELL
-      yum install epel-release
+      # yum install epel-release
       # Get the public IP of your app Server
       echo -e "Please take a note of public IP mentioned below."
       hostname -I | awk -F' ' '{print $2}'
