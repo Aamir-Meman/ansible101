@@ -1,8 +1,12 @@
 ---
 - hosts: vagrant
+  sudo: yes
   tasks:
+    - name: Install epel-releases
+      yum: pkg:epel-release state=installed
+
     - name: Installs ngnix web Server
-      apt: pkg=ngnix state=installed updated_cache=true
+      yum: pkg=ngnix state=installed
       notify:
         - start ngnix
 

@@ -8,7 +8,7 @@ RUN yum install sudo -y
 RUN yum update -y
 
 # RUN yum install epel-release
-RUN yum install ansible -y
+RUN yum install ansible git -y
 RUN yum -y install openssh-server openssh-clients
 
 # Create a sudoer user
