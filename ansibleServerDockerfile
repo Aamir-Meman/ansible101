@@ -1,0 +1,22 @@
+FROM centos:7
+
+# update pakages and install sudo
+RUN yum update -y
+RUN yum install sudo -y
+
+# RUN yum repo update
+RUN yum update -y
+
+# RUN yum install epel-release
+RUN yum install ansible -y
+RUN yum -y install openssh-server openssh-clients
+
+# Create a sudoer user
+RUN useradd ciuser -G wheel && echo ciuser:Pass@2017 | chpasswd --crypt-method=SHA512
+
+USER ciuser
+
+# Copy private key to .ssh folder
+ENV HOME /home/ciuser
+RUN mkdir $HOME/.ssh
+RUN ssh-keygen -t rsa -b 2048 -f $HOME/.ssh/id_rsa -N ""
