@@ -1,4 +1,8 @@
 server001 ansible_ssh_host=172.28.128.3 ansible_ssh_user=vagrant
+server002 ansible_ssh_host=172.28.128.4 ansible_ssh_user=vagrant
+server003 ansible_ssh_host=172.28.128.5 ansible_ssh_user=vagrant
 
-[vagrant]
+[vagranthosts]
 server001
+server002
+server003
