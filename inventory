@@ -1,0 +1,4 @@
+server001 ansible_ssh_host=172.28.128.3 ansible_ssh_user=vagrant
+
+[vagrant]
+server001

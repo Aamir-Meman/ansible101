@@ -1,0 +1,11 @@
+---
+- hosts: vagrant
+  tasks:
+    - name: Installs ngnix web Server
+      apt: pkg=ngnix state=installed updated_cache=true
+      notify:
+        - start ngnix
+
+  handlers:
+    - name: start ngnix
+      service: name=ngnix state=started
