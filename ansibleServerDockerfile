@@ -20,3 +20,10 @@ USER ciuser
 ENV HOME /home/ciuser
 RUN mkdir $HOME/.ssh
 RUN ssh-keygen -t rsa -b 2048 -f $HOME/.ssh/id_rsa -N ""
+
+USER root
+COPY config /home/ciuser/.ssh/config
+RUN chown ciuser:ciuser /home/ciuser/.ssh/config
+RUN chmod 644 /home/ciuser/.ssh/config
+
+USER ciuser
